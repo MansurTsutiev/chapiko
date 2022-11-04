@@ -1,20 +1,27 @@
-<h1>Blocks Index</h1>
-<% @blocks.each do |block| %>
-  <%= block.link %>
-<% end %>
+<div class="bg-white">
+  <%= turbo_frame_tag "new_block_form", src: "blocks/new" do %>
+    <h1>Loading</h1>
+  <% end %>
 
+  <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
+    <div class="space-y-12">
+      <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Your Selections</h2>
+        <p class="text-xl text-gray-500">Share your selections with your others</p>
+      </div>
+      <ul role="list" id="list_of_blocks" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+          <% @blocks.each do |block| %>
+            <li>
+              <div class="space-y-4">
+                <div class="aspect-w-3 aspect-h-2">
 
-<ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-  <li class="relative">
-    <div class="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-      <img src="https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80" alt="" class="pointer-events-none object-cover group-hover:opacity-75">
-      <button type="button" class="absolute inset-0 focus:outline-none">
-        <span class="sr-only">View details for IMG_4985.HEIC</span>
-      </button>
+                  <img class="rounded-lg object-cover shadow-lg" src="<%= block.link %>" >
+                </div>
+              </div>
+            </li>
+        <% end %>
+        </ul>
     </div>
-    <p class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">IMG_4985.HEIC</p>
-    <p class="pointer-events-none block text-sm font-medium text-gray-500">3.9 MB</p>
-  </li>
+  </div>
+</div>
 
-  <!-- More files... -->
-</ul>

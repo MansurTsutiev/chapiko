@@ -5,11 +5,11 @@ class BlocksController < ApplicationController
 
   def new
     @block = Block.new
+    render :new
   end
 
   def create
-    Block.create(blocks_params)
-    redirect_to action: "index"
+    @block = Block.create!(blocks_params)
   end
 
   private

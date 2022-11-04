@@ -1,0 +1,10 @@
+<%= turbo_stream.append "list_of_blocks" do %>
+  <li>
+    <div class="space-y-4">
+      <div class="aspect-w-3 aspect-h-2">
+
+        <img class="rounded-lg object-cover shadow-lg" src="<%= @block.link %>" >
+      </div>
+    </div>
+  </li>
+<% end %>
