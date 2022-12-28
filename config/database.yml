@@ -5,10 +5,14 @@ default: &default
 
 development:
   <<: *default
+  host: host.docker.internal
   database: chapiko_db
   username: root
   password:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: chapiko_db_production
+  host: <%= Rails.application.credentials.chapiko_db_host %>
+  username: <%= Rails.application.credentials.chapiko_db_username %>
+  password: <%= Rails.application.credentials.chapiko_db_password %>

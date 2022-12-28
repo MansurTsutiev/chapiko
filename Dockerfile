@@ -4,9 +4,10 @@ RUN apk add \
   build-base \
   postgresql-dev
 
+RUN gem install bundler -v 2.3.19
+
 COPY Gemfile* .
 
-RUN gem install bundler -v 2.3.19
 RUN bundle install
 
 FROM ruby:3.1.0-alpine AS runner
@@ -25,4 +26,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "e", "production", "server", "-b", "0.0.0.0"]
