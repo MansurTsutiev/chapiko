@@ -1,0 +1,6 @@
+services:
+  rails:
+    container_name: rails
+    image: <account_id>.dkr.ecr.us-east-1.amazonaws.com/tank:latest
+    environment:
+      RAILS_ENV: production
