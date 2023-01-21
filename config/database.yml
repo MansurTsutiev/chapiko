@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  host: host.docker.internal
+  host: localhost
   database: chapiko_db
   username: root
   password:
